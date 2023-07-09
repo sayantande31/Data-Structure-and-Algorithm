@@ -5,6 +5,7 @@ public class Main {
         final String STRING = "--------------------";
 
             GraphRepresentation graphRepresentation=new GraphRepresentation();
+            BreadthFirstSearch breadthFirstSearch=new BreadthFirstSearch();
         /*
                           ------------
                           |          |
@@ -12,14 +13,17 @@ public class Main {
                     |          |
                     ------------
         */
-            int[][] inputArr = {{1,2}, {2, 3}, {3, 4},{1,3},{2,4},{5,4}};
-            int n=5;
+//            int[][] inputArr = {{1,2}, {2, 3}, {3, 4},{1,3},{2,4},{5,4}};
+            int[][] inputArr = {{1,2}, {2, 3}, {2,4},{1,6},{6,7},{6,9},{7,8},{4,5},{5,8}};
+            int n=9;
 
             ArrayList<ArrayList<Integer>>  result = graphRepresentation.getAdjacencyList(inputArr,n);
             System.out.println("\n1 BASED\n" + STRING);
             for(int i=0;i<result.size();i++){
                 System.out.println(i+" -> "+result.get(i));
             }
+            ArrayList<Integer> traverseOrder =breadthFirstSearch.traverseGraph(result,n);
+            System.out.println(traverseOrder.toString());
 
         /*
                           ------------
@@ -33,7 +37,7 @@ public class Main {
 
             ArrayList<ArrayList<Integer>>  result1 = graphRepresentation.getAdjacencyList(inputArr1,n1);
             System.out.println("\n0 BASED\n" + STRING);
-            for(int i=0;i<result.size();i++){
+            for(int i=0;i<result1.size();i++){
                 System.out.println(i+" -> "+result1.get(i));
             }
 
