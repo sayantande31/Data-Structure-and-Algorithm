@@ -6,13 +6,14 @@ public class Main {
 
             GraphRepresentation graphRepresentation=new GraphRepresentation();
             BreadthFirstSearch breadthFirstSearch=new BreadthFirstSearch();
-        /*
-                          ------------
-                          |          |
-                    1-----2----3-----4----5
-                    |          |
-                    ------------
-        */
+            DepthFirstSearch depthFirstSearch=new DepthFirstSearch();
+            /*
+                              ------------
+                              |          |
+                        1-----2----3-----4----5
+                        |          |
+                        ------------
+            */
 //            int[][] inputArr = {{1,2}, {2, 3}, {3, 4},{1,3},{2,4},{5,4}};
             int[][] inputArr = {{1,2}, {2, 3}, {2,4},{1,6},{6,7},{6,9},{7,8},{4,5},{5,8}};
             int n=9;
@@ -22,16 +23,18 @@ public class Main {
             for(int i=0;i<result.size();i++){
                 System.out.println(i+" -> "+result.get(i));
             }
-            ArrayList<Integer> traverseOrder =breadthFirstSearch.traverseGraph(result,n);
-            System.out.println(traverseOrder.toString());
+            ArrayList<Integer> bfsTraverseOrder =breadthFirstSearch.traverseGraph(result,n);
+            System.out.println("BFS Traverse Order -> "+bfsTraverseOrder.toString());
+            ArrayList<Integer> dfsTraverseOrder =depthFirstSearch.traverseGraph(n,result);
+            System.out.println("DFS Traverse Order -> "+dfsTraverseOrder.toString());
 
-        /*
-                          ------------
-                          |          |
-                    0-----1----2-----3----4
-                    |          |
-                    ------------
-        */
+            /*
+                              ------------
+                              |          |
+                        0-----1----2-----3----4
+                        |          |
+                        ------------
+            */
             int[][] inputArr1 = {{0,1}, {1, 2}, {2, 3},{0,2},{1,3},{3,4}};
             int n1=5;
 
